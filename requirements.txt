@@ -1,5 +1,8 @@
-fastapi 
-uvicorn 
-torch 
-numpy 
+fastapi
+uvicorn
+gunicorn
 pydantic
+wfdb
+torch
+numpy
+python-multipart
