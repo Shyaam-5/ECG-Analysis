@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioAI - ECG Classification System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <span class="brand-text">CardioAI</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#analyzer" class="nav-link">ECG Analyzer</a>
+                <a href="#guide" class="nav-link">Classification Guide</a>
+                <a href="#help" class="nav-link">Help & FAQ</a>
+            </div>
+            
+            <div class="nav-controls">
+                <div class="theme-toggle" id="themeToggle">
+                    <div class="toggle-track">
+                        <div class="toggle-thumb">
+                            <i class="fas fa-sun light-icon"></i>
+                            <i class="fas fa-moon dark-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#analyzer" class="mobile-nav-link">ECG Analyzer</a>
+            <a href="#guide" class="mobile-nav-link">Classification Guide</a>
+            <a href="#help" class="mobile-nav-link">Help & FAQ</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Landing Section -->
+        <section id="home" class="section landing-section active">
+            <div class="container">
+                <!-- Hero Section -->
+                <div class="hero">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>Medical Grade AI System</span>
+                        </div>
+                        <h1 class="hero-title">
+                            AI-Powered ECG <span class="highlight">Classification</span>
+                        </h1>
+                        <p class="hero-description">
+                            Advanced artificial intelligence system for automated analysis and classification 
+                            of 12-lead electrocardiogram signals, assisting healthcare professionals in 
+                            rapid and accurate cardiac condition detection.
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" onclick="navigateToSection('analyzer')">
+                                <i class="fas fa-chart-line"></i>
+                                Launch ECG Analyzer
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="navigateToSection('guide')">
+                                <i class="fas fa-book-medical"></i>
+                                View Classification Guide
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="ecg-animation">
+                            <div class="ecg-line">
+                                <svg viewBox="0 0 400 100" class="ecg-svg">
+                                    <path d="M0,50 L50,50 L60,20 L70,80 L80,50 L100,50 L110,30 L120,70 L130,50 L200,50 L210,25 L220,75 L230,50 L300,50 L310,35 L320,65 L330,50 L400,50" 
+                                          class="ecg-path" stroke="var(--primary-color)" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="pulse-indicator">
+                                <div class="pulse-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What is ECG Section -->
+                <div class="info-section">
+                    <div class="section-header">
+                        <h2>Understanding Electrocardiograms</h2>
+                        <p>Learn about ECG technology and its critical role in cardiac diagnosis</p>
+                    </div>
+                    
+                    <div class="ecg-info-grid">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>What is an ECG?</h3>
+                            <p>An electrocardiogram (ECG) is a medical test that records the electrical activity of the heart over time. It captures the heart's rhythm and can detect various cardiac conditions through characteristic patterns in the electrical signals.</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>12-Lead Analysis</h3>
+                            <p>Our system analyzes standard 12-lead ECG recordings, which provide a comprehensive view of the heart's electrical activity from multiple angles, enabling accurate detection of various cardiac abnormalities.</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>AI-Powered Detection</h3>
+                            <p>Advanced machine learning algorithms trained on thousands of ECG recordings provide rapid, accurate classification of cardiac conditions, assisting healthcare professionals in diagnosis and treatment planning.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conditions Overview -->
+                <div class="conditions-section">
+                    <div class="section-header">
+                        <h2>Detectable Cardiac Conditions</h2>
+                        <p>Our AI system can identify and classify 10 different cardiac conditions with high accuracy</p>
+                    </div>
+                    
+                    <div class="conditions-grid">
+                        <div class="condition-card normal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>NORM</h4>
+                                    <span class="condition-name">Normal ECG</span>
+                                </div>
+                            </div>
+                            <p>Healthy cardiac electrical activity with normal rhythm, rate, and waveform patterns.</p>
+                        </div>
+
+                        <div class="condition-card critical">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-heart-broken"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>MI</h4>
+                                    <span class="condition-name">Myocardial Infarction</span>
+                                </div>
+                            </div>
+                            <p>Heart attack - damage to heart muscle due to blocked blood supply, requiring immediate medical attention.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>CD</h4>
+                                    <span class="condition-name">Conduction Disturbance</span>
+                                </div>
+                            </div>
+                            <p>Abnormal electrical conduction pathways affecting the heart's rhythm and coordination.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>HYP</h4>
+                                    <span class="condition-name">Hypertrophy</span>
+                                </div>
+                            </div>
+                            <p>Enlarged heart muscle, often due to high blood pressure or other cardiovascular conditions.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>STTC</h4>
+                                    <span class="condition-name">ST/T Changes</span>
+                                </div>
+                            </div>
+                            <p>Abnormal ST segment or T wave patterns indicating potential ischemia or other cardiac issues.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>LVH</h4>
+                                    <span class="condition-name">Left Ventricular Hypertrophy</span>
+                                </div>
+                            </div>
+                            <p>Thickening of the left ventricle wall, often associated with hypertension or valve disease.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>LAFB</h4>
+                                    <span class="condition-name">Left Anterior Fascicular Block</span>
+                                </div>
+                            </div>
+                            <p>Blocked electrical pathway in the left ventricle affecting the heart's conduction system.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>ISC</h4>
+                                    <span class="condition-name">Ischemic</span>
+                                </div>
+                            </div>
+                            <p>Reduced blood flow to heart muscle, potentially indicating coronary artery disease.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>IRBBB</h4>
+                                    <span class="condition-name">Incomplete Right Bundle Branch Block</span>
+                                </div>
+                            </div>
+                            <p>Partial blockage in the right bundle branch affecting electrical conduction.</p>
+                        </div>
+
+                        <div class="condition-card abnormal">
+                            <div class="condition-header">
+                                <div class="condition-icon">
+                                    <i class="fas fa-random"></i>
+                                </div>
+                                <div class="condition-info">
+                                    <h4>IVCD</h4>
+                                    <span class="condition-name">Intraventricular Conduction Disturbance</span>
+                                </div>
+                            </div>
+                            <p>Abnormal electrical conduction within the ventricles affecting heart rhythm coordination.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-section">
+                    <div class="cta-content">
+                        <h2>Ready to Analyze ECG Data?</h2>
+                        <p>Upload your ECG files and get instant AI-powered classification results</p>
+                        <button class="btn btn-primary btn-large" onclick="navigateToSection('analyzer')">
+                            <i class="fas fa-upload"></i>
+                            Start ECG Analysis
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ECG Analyzer Section -->
+        <section id="analyzer" class="section analyzer-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>ECG Classification Analyzer</h2>
+                    <p>Upload your ECG files for AI-powered cardiac condition analysis</p>
+                </div>
+                
+                <!-- Dashboard Grid -->
+                <div class="analyzer-dashboard">
+                    <!-- Upload Panel -->
+                    <div class="dashboard-panel upload-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-upload"></i> Upload ECG Files</h3>
+                            <div class="status-indicator">
+                                <div class="status-dot" id="statusDot"></div>
+                                <span id="statusText">Ready</span>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="upload-zone" id="uploadZone">
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt" id="uploadIcon"></i>
+                                    <h4 id="uploadTitle">Drop ECG Files Here</h4>
+                                    <p id="uploadSubtitle">or click to browse files</p>
+                                    <div class="file-requirements">
+                                        <small><i class="fas fa-info-circle"></i> Required: .dat + .hea files (WFDB format)</small>
+                                        <small><i class="fas fa-weight-hanging"></i> Max size: 10MB per file</small>
+                                    </div>
+                                </div>
+                                <input type="file" id="ecgFile" accept=".dat,.hea" multiple hidden>
+                            </div>
+                            
+                            <div class="file-preview" id="filePreview" style="display: none;">
+                                <h5><i class="fas fa-files"></i> Selected Files</h5>
+                                <div id="fileList"></div>
+                            </div>
+                            
+                            <div class="upload-actions">
+                                <button class="btn btn-primary" id="analyzeBtn" onclick="uploadFiles()" disabled>
+                                    <span class="btn-text">
+                                        <i class="fas fa-brain"></i> Analyze ECG
+                                    </span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i> Processing...
+                                    </span>
+                                </button>
+                                <button class="btn btn-outline" id="clearBtn" onclick="clearFiles()" style="display: none;">
+                                    <i class="fas fa-trash"></i> Clear Files
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Panel -->
+                    <div class="dashboard-panel results-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-chart-pulse"></i> Classification Results</h3>
+                        </div>
+                        <div class="panel-content" id="resultsContent">
+                            <div class="no-results">
+                                <div class="empty-state-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4>No Analysis Yet</h4>
+                                <p>Upload ECG files to see AI classification results</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Panel -->
+                    <div class="dashboard-panel stats-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-chart-bar"></i> Signal Statistics</h3>
+                        </div>
+                        <div class="panel-content" id="statsContent">
+                            <div class="no-stats">
+                                <div class="empty-state-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <h4>No Data Available</h4>
+                                <p>Statistics will appear after ECG analysis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Reference Panel -->
+                    <div class="dashboard-panel reference-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-reference-info"></i> Quick Reference</h3>
+                        </div>
+                        <div class="panel-content">
+                            <div class="reference-grid">
+                                <div class="reference-item normal">
+                                    <div class="ref-indicator"></div>
+                                    <span>Normal</span>
+                                </div>
+                                <div class="reference-item abnormal">
+                                    <div class="ref-indicator"></div>
+                                    <span>Abnormal</span>
+                                </div>
+                                <div class="reference-item critical">
+                                    <div class="ref-indicator"></div>
+                                    <span>Critical</span>
+                                </div>
+                            </div>
+                            <div class="reference-note">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Results are AI-generated and should be reviewed by qualified medical professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classification Guide Section -->
+        <section id="guide" class="section guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Complete Classification Guide</h2>
+                    <p>Detailed information about all cardiac conditions detected by our AI system</p>
+                </div>
+                
+                <div class="guide-content">
+                    <!-- Guide content will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Help & FAQ Section -->
+        <section id="help" class="section help-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Help & Frequently Asked Questions</h2>
+                    <p>Get answers to common questions about using the ECG classification system</p>
+                </div>
+                
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What file formats are supported?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The system supports WFDB format files, which consist of paired .dat (binary data) and .hea (header) files. Both files are required for analysis.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How accurate are the AI predictions?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our AI model has been trained on thousands of ECG recordings and provides high accuracy classifications. However, results should always be reviewed by qualified medical professionals for final diagnosis.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Is patient data stored on the system?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, we prioritize patient privacy. ECG files are processed temporarily and automatically deleted after analysis. No patient data is permanently stored on our servers.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can I export the analysis results?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Currently, results are displayed on-screen. Future updates will include export functionality for PDF reports and CSV data files.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div>
+                        <h4>CardioAI</h4>
+                        <p>Advanced ECG Classification System</p>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2024 CardioAI. Medical-grade AI for healthcare professionals.</p>
+                    <p><strong>Disclaimer:</strong> This system provides AI-assisted analysis. Always consult qualified medical professionals for diagnosis and treatment decisions.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+        <button class="toast-close" onclick="hideToast()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
